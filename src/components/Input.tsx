@@ -21,13 +21,14 @@ import  { forwardRef } from "react";
 
 interface InputProps {
   placeholder: string;
+  onChange:()=>void
 }
 
 // ✅ Correctly forwarding the ref
-export const Input = forwardRef<HTMLInputElement, InputProps>(({ placeholder }, ref) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ placeholder,onChange }, ref) => {
   return (
     <div>
-      <input ref={ref} type="text" placeholder={placeholder} className="px-4 py-2 border-2 rounded m-2" />
+      <input ref={ref} type="text" placeholder={placeholder} onChange={onChange} className="px-4 py-2 border-2 rounded m-2" />
     </div>
   );
 });
